@@ -23,7 +23,7 @@ function Login()  {
     }
 
     const changeConfirmPW = e => {
-        setConfirmPassword(e.targe.value);
+        setConfirmPassword(e.target.value);
     }
 
     const changeEmail = e => {
@@ -74,8 +74,45 @@ function Login()  {
                         placeholder='Enter email address'
                         ref={register({required: "Must enter a valid email address"})}
                     />
+                    {errors.email && <p>{errors.email.message}</p>}
                 </FormInfo>
+                {/* Password */}
+                <FormInfo>
+                <label htmlFor='password'>Password</label>
+                    <Input 
+                        type ='password'
+                        name ='password'
+                        id = 'password'
+                        onChange={changePW}
+                        value={password}
+                        placeholder='Create a Password with at least 7 characters'
+                        ref={register({required: "Must enter a password",
+                        minLength: {value: 7, message: "Must enter a password of at least 7 characters"}})}
+                    />
+                    {errors.password && <p>{errors.password.message}</p>}
+                </FormInfo>
+                <FormInfo>
+                {/* Confirm Password */}
+                <Input 
+                        type ='password'
+                        name ='confirmPassword'
+                        id = 'confirmPassword'
+                        onChange={changeConfirmPW}
+                        value={confirmPassword}
+                        placeholder='Confirm Password'
+                        ref={register({required: "Must confirm password",
+                        minLength: {value: 7, message: "Must enter a password of at least 7 characters"}})}
+                    />
+                    {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
+                    {notMatching}
+                </FormInfo>
+                <Button>Create Account</Button>
+                <div className="preUnderline">Already have an account?<span className="underline2" onClick={()=>history.push('/login')}>Log in here.</span></div>
             </FormField>
+            {/* Sign up Page */}
+            <div id="signUp">
+                {/* Sign up Here */}
+            </div>
         </FormPage>
 
     );
