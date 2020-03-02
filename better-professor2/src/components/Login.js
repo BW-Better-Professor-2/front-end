@@ -4,7 +4,7 @@ import {useHistory} from 'react-router-dom';
 
 import {useForm} from 'react-hook-form';
 
-const Login2Form = () => {
+const Login = () => {
     const history = useHistory();
     const {
       register,
@@ -96,4 +96,4 @@ const Login2Form = () => {
   );
 }
 
-export default Login2Form;
+export default Login;
