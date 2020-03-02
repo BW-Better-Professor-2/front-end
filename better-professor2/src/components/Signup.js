@@ -36,7 +36,7 @@ function Login()  {
         errors} = useForm();
 
     const onSubmit = () => {
-        (password === confirmPassword) ? (
+        (password === confirmPassword) ? ( //<--IF THIS THEN, -->
             axios.post('https://better-professor-bw.herokuapp.com/api/auth/register', {
                 'username': email.toString(),
                 'password': password.toString(),
@@ -53,12 +53,30 @@ function Login()  {
             .catch(error => {
                 console.log('Failed to register.', error)
             })
-        ) : (setNotMatching('Passwords do not match!'))
+        ) : // <--IF NOT THEN --> 
+        (setNotMatching('Passwords do not match!'))
     }
 
     return(
 
-
+        <FormPage>
+            <FormField onSubmit={handleSubmit(onSubmit)}>
+                <h1>Create an Account</h1>
+                {/* Email */}
+                <FormInfo>
+                    <label htmlFor='email'>Email</label>
+                    <Input 
+                        type ='email'
+                        name ='email'
+                        id = 'email'
+                        onChange={changeEmail}
+                        value={email}
+                        placeholder='Enter email address'
+                        ref={register({required: "Must enter a valid email address"})}
+                    />
+                </FormInfo>
+            </FormField>
+        </FormPage>
 
     );
 }
