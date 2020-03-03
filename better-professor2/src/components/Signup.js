@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import axios from 'axios';
+import {axiosWithAuth} from '../utils/axiosWtihAuth';
 
 import {useForm} from 'react-hook-form';
 import {FormPage, FormField, FormInfo, Button, Input, ImgDiv} from "styled-components"
@@ -37,7 +38,7 @@ function Login()  {
 
     const onSubmit = () => {
         (password === confirmPassword) ? ( //<--IF THIS THEN, -->
-            axios.post('https://better-professor-bw.herokuapp.com/api/auth/register', {
+            axiosWithAuth().post('/auth/register', {
                 'username': email.toString(),
                 'password': password.toString(),
             })
