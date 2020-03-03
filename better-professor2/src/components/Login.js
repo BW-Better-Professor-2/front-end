@@ -1,8 +1,10 @@
 
 import axios from 'axios';
+import React from 'react';
 import {useHistory} from 'react-router-dom';
-
+import {axiosWithAuth} from '../utils/axiosWtihAuth';
 import {useForm} from 'react-hook-form';
+import ErrorMessage from './ErrorMessage';
 
 const Login = () => {
     const history = useHistory();
@@ -19,8 +21,8 @@ const Login = () => {
       const username = data.Email;
       const password = data.PassWord;
 
-      axios
-      .post(`https://better-professor-bw.herokuapp.com//api/auth/login`, {username, password})
+      axiosWithAuth()
+      .post(`/auth/login`, {username, password})
       .then(res=> {
           console.log("login successfull")
           localStorage.setItem("token", res.data.token);
