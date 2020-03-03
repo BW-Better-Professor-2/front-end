@@ -4,7 +4,7 @@ import axios from 'axios';
 import {axiosWithAuth} from '../utils/axiosWtihAuth';
 
 import {useForm} from 'react-hook-form';
-import {FormPage, FormField, FormInfo, Button, Input, ImgDiv} from "styled-components"
+import {FormPage, FormField, FormInfo, Button, Input, ImgDiv} from "./styled-components"
 
 function Login()  {
 

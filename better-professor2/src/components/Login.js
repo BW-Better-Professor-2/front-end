@@ -5,6 +5,7 @@ import {useHistory} from 'react-router-dom';
 import {axiosWithAuth} from '../utils/axiosWtihAuth';
 import {useForm} from 'react-hook-form';
 import ErrorMessage from './ErrorMessage';
+import {LoginForm, FormField, FormInfo, Button, Input} from './styled-components';
 
 const Login = () => {
     const history = useHistory();
@@ -45,17 +46,18 @@ const Login = () => {
     };
 
   return (
-  <form>
-    <div className="pageContainer2">
-      <div className="sectionContainer1">
-        <form className="loginForm" onSubmit={handleSubmit(onSubmit)}>
+  <LoginForm>
+    
+      
+        <FormField className="loginForm" onSubmit={handleSubmit(onSubmit)}>
           <h1>Log In</h1>
+          <FormInfo>
           <label htmlFor="email">Email</label>
-          <input className="styleInput3" id="email" placeholder="Enter Email Here" name="Email" ref={register({ required: true })} />
+          <Input className="styleInput3" id="email" placeholder="Enter Email Here" name="Email" ref={register({ required: true })} />
           <ErrorMessage error={errors.firstName} />
 
           <label htmlFor="password">Password</label>
-          <input className="styleInput3" id="password" placeholder="Enter Password Here" name="PassWord" type="password" ref={register({ required: true, minLength: 2 })} />
+          <Input className="styleInput3" id="password" placeholder="Enter Password Here" name="PassWord" type="password" ref={register({ required: true, minLength: 2 })} />
           <ErrorMessage error={errors.firstName} />
 
 
@@ -80,20 +82,20 @@ const Login = () => {
 
           <ErrorMessage error={errors.age} />
 
-
-        <buttons>
-          <input disabled={isSubmitting} value={"Log In"} type="submit" />
-          </buttons>
+        </FormInfo>
+        <Button>
+          Login
+          </Button>
         <div>Don't have an account? <span className="underline" onClick={()=>history.push("/registration")}>Create one here.</span></div>
-        </form>
-    </div>
+        </FormField>
+    
     <div className="sectionContainer2">
       <div id="signUp">
         {/* Sign Up Graphic Here */}
       </div>
     </div>
-    </div>
-    </form>
+    
+    </LoginForm>
     
   );
 }
