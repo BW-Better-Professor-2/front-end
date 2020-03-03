@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute';
-import Login from './components/Login';
-import SignUp from './components/Signup';
+// import Login from './components/Login';
+// import SignUp from './components/Signup';
 import './App.css';
 
 function App() {
@@ -20,9 +20,8 @@ function App() {
           </li>
         </ul>
         <Switch>
-          <PrivateRoute  />
-          <Route path='/login' component={Login} />
-          <Route path='/signup' component={SignUp} />
+          {/* <Route path='/login' component={Login} />
+          <Route path='/signup' component={SignUp} /> */}
         </Switch>
       </div>
     </Router>
