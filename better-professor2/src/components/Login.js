@@ -1,12 +1,13 @@
 
 import axios from 'axios';
-import React from 'react';
+import React, {useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import {axiosWithAuth} from '../utils/axiosWtihAuth';
 import {useForm} from 'react-hook-form';
 import {LoginForm, FormField, FormInfo, Button, Input} from './styled-components';
 
-const Login = () => {
+
+const Login = (props) => {
     const history = useHistory();
     const {
       register,
@@ -17,12 +18,27 @@ const Login = () => {
       formState: { isSubmitting }
     } = useForm();
 
-    const onSubmit = data => {
-      const username = data.Email;
-      const password = data.PassWord;
+    const [user, setUser] = useState({
+      username: '',
+      password: ''
+    })
+
+    const handleChanges = e => {
+      setUser({...user, [e.target.name]: e.target.value})
+      console.log(user);
+    }
+
+    const onSubmit = e => {
+      
+      e.preventDefault();
+      props.addNewUser(user);
+      setUser({
+        username: '',
+        password: ''
+      })
 
       axiosWithAuth()
-      .post(`/auth/login`, {username, password})
+      .post(`/auth/login`)
       .then(res=> {
           console.log("login successfull")
           localStorage.setItem("token", res.data.token);
@@ -34,15 +50,6 @@ const Login = () => {
       })
     }
 
-    const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
-    const validateUserName = async value => {
-      await sleep(1000);
-      if (value !== "bill") {
-        setError("username", "validate");
-      } else {
-        clearError("username");
-      }
-    };
 
   return (
   <LoginForm>
@@ -51,13 +58,13 @@ const Login = () => {
         <FormField className="loginForm" onSubmit={handleSubmit(onSubmit)}>
           <h1>Log In</h1>
           <FormInfo>
-          <label htmlFor="email">Email</label>
-          <Input className="styleInput3" id="email" placeholder="Enter Email Here" name="email" ref={register({ required: 'Please enter email', requred : true })} />
-          {errors.email && console.log('Login Email error: ', errors.email) && <p>{errors.email.message}</p>}
+          <label htmlFor="username">Username</label>
+          <Input className="styleInput3" id="username" placeholder="Enter Username Here" name="username" ref={register({ required: 'Please enter username', requred : true })} />
+          {errors.username && console.log('Login Username error: ', errors.username) && <p>{errors.username.message}</p>}
 
           <label htmlFor="password">Password</label>
           <Input className="styleInput3" id="password" placeholder="Enter Password Here" name="passWord" type="password" ref={register({ required: 'Please enter password', required: true, minLength: 2 })} />
-          {errors.email && console.log('Login Password Error: ', errors.password) && <p>{errors.email.message}</p>}
+          {errors.password && console.log('Login Password Error: ', errors.password) && <p>{errors.password.message}</p>}
         </FormInfo>
         <Button>
           Login
