@@ -4,7 +4,6 @@ import React from 'react';
 import {useHistory} from 'react-router-dom';
 import {axiosWithAuth} from '../utils/axiosWtihAuth';
 import {useForm} from 'react-hook-form';
-import ErrorMessage from './ErrorMessage';
 import {LoginForm, FormField, FormInfo, Button, Input} from './styled-components';
 
 const Login = () => {
@@ -53,35 +52,12 @@ const Login = () => {
           <h1>Log In</h1>
           <FormInfo>
           <label htmlFor="email">Email</label>
-          <Input className="styleInput3" id="email" placeholder="Enter Email Here" name="Email" ref={register({ required: true })} />
-          <ErrorMessage error={errors.firstName} />
+          <Input className="styleInput3" id="email" placeholder="Enter Email Here" name="email" ref={register({ required: 'Please enter email', requred : true })} />
+          {errors.email && console.log('Login Email error: ', errors.email) && <p>{errors.email.message}</p>}
 
           <label htmlFor="password">Password</label>
-          <Input className="styleInput3" id="password" placeholder="Enter Password Here" name="PassWord" type="password" ref={register({ required: true, minLength: 2 })} />
-          <ErrorMessage error={errors.firstName} />
-
-
-          <ErrorMessage error={errors.gender} />
-
-
-
-            {e => validateUserName(e.target.value)}
-            {register({ required: true, validate: validateUserName })}
-
-          <ErrorMessage error={errors.username} />
-
-
-
-            {register({ required: true, pattern: /^\S+@\S+$/i })}
-
-          <ErrorMessage error={errors.email} />
-
-
-
-            {register({ required: true, min: 18 })}
-
-          <ErrorMessage error={errors.age} />
-
+          <Input className="styleInput3" id="password" placeholder="Enter Password Here" name="passWord" type="password" ref={register({ required: 'Please enter password', required: true, minLength: 2 })} />
+          {errors.email && console.log('Login Password Error: ', errors.password) && <p>{errors.email.message}</p>}
         </FormInfo>
         <Button>
           Login
