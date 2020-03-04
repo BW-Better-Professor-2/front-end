@@ -29,18 +29,17 @@ const Login = (props) => {
     }
 
     const onSubmit = e => {
-      
-      e.preventDefault();
-      props.addNewUser(user);
-      setUser({
-        username: '',
-        password: ''
-      })
+
+      const username = e.username;
+      const password = e.password;
 
       axiosWithAuth()
-      .post(`/auth/login`)
+      .post(`/auth/login`, {
+        'username': username,
+        'password': password
+    })
       .then(res=> {
-          console.log("login successfull")
+          console.log("login successfull", res)
           localStorage.setItem("token", res.data.token);
           localStorage.setItem("professorID", res.data.id);
           history.push("/dashboard")
