@@ -49,6 +49,33 @@ export const FormPage = styled.div`
   margin-top: 5rem;
 `;
 
+export const Head = styled.header`
+  width: 90%;
+  height: 11rem;
+  display: flex;
+  margin-bottom: 2rem;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const HeadContainer = styled.div`
+display: flex;
+justify-content: center;
+`
+
+export const HLeft = styled.div`
+  display: flex;
+  padding: .5rem;
+  align-items: center;
+`;
+
+export const HRight = styled.div`
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  margin-right: 4%;
+  `
+
 export const Input = styled.input`
   border-radius: 5px;
   padding: .5rem;
