@@ -29,7 +29,7 @@ const ProjectForm = props => {
             />
 
             <label htmlFor='body'>Project Details</label>
-            <input 
+            <textarea 
                 id= "body"
                 type="text"
                 name= "body"

@@ -8,6 +8,8 @@ import SignUp from './components/Signup';
 import './App.css';
 import Dashboard from './components/Dashboard';
 import StudentList from './components/StudentList';
+import ProjectList from './components/ProjectList';
+import ReminderList from './components/ReminderList';
 
 
 
@@ -35,6 +37,8 @@ function App() {
           <Route path='/login' component={Login} />
           <Route path='/signup' component={SignUp} />
           <Route path='/studentlist' component={StudentList}/>
+          <Route path='/projectlist' component={ProjectList}/>
+          <Route path='/reminderlist' component={ReminderList}/>
         </Switch>
       </div>
     </Router>

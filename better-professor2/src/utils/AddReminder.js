@@ -29,7 +29,7 @@ const ReminderForm = props => {
             />
 
             <label htmlFor='body'>Reminder Details</label>
-            <input 
+            <textarea 
                 id= "body"
                 type="text"
                 name= "body"

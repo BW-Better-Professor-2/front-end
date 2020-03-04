@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import ReactDom from 'react-dom';
 import AddStudent from '../utils/AddStudent';
 import Students from '../utils/Students';
 
