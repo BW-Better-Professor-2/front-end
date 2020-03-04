@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute';
+import Header from './components/Header';
+import Navigation from './components/Navigation';
 import Login from './components/Login';
 import SignUp from './components/Signup';
 import './App.css';
@@ -21,6 +23,9 @@ function App() {
             <Link to='/signUp'>SignUp</Link>
           </li>
         </ul>
+
+        <Header />
+        <Navigation />
 
         <Switch>
           <Route path='/login' component={Login} />
