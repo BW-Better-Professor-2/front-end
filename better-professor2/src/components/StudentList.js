@@ -19,7 +19,7 @@ function StudentList () {
             studentName: student.studentName,
             studentEmail: student.studentEmail
         }
-        setStudents([...students, setStudent]);
+        setStudents([...students, newStudent]);
     }
 
 
@@ -31,3 +31,5 @@ function StudentList () {
         </div>
     )
 }
+
+export default StudentList;

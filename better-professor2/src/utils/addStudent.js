@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 
-export const StudentForm = props => {
+const StudentForm = props => {
     const [student, setStudent] = useState({
-        studentName = "",
-        studentEmail = ""
+        studentName: "",
+        studentEmail: ""
     });
 
     const handleChanges = e => {
@@ -36,6 +36,9 @@ export const StudentForm = props => {
                 onChange={handleChanges}
                 value={student.studentEmail}
             />
+            <button type='submit'>Add Student</button>
         </form>
     )
 }
+
+export default StudentForm;

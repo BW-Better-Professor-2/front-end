@@ -7,6 +7,7 @@ import Login from './components/Login';
 import SignUp from './components/Signup';
 import './App.css';
 import Dashboard from './components/Dashboard';
+import StudentList from './components/StudentList';
 
 
 
@@ -32,7 +33,8 @@ function App() {
 
         <Switch>
           <Route path='/login' component={Login} />
-          <Route path='/signup' component={SignUp} /> 
+          <Route path='/signup' component={SignUp} />
+          <Route path='/studentlist' component={StudentList}/>
         </Switch>
       </div>
     </Router>
