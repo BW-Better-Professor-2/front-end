@@ -109,7 +109,6 @@ export const Nav = styled.div`
 export const NavLinksContainer = styled.div `
   display:flex;
   flex-direction: row;
-  border: red solid 1px;
   width: 50%;
   justify-content: space-around;
 `;

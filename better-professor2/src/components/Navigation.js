@@ -14,7 +14,7 @@ function Navigation() {
             <Link className="link">Student List List</Link>
             <Link className="link">Project List</Link>
             <Link className="link">My Reminders</Link>
-            <Link className="link">Setings</Link>
+            <Link className="link">Settings</Link>
             <Link className="link">Help</Link>
        </NavLinksContainer>
     </Nav>

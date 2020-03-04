@@ -6,6 +6,7 @@ import Navigation from './components/Navigation';
 import Login from './components/Login';
 import SignUp from './components/Signup';
 import './App.css';
+import Dashboard from './components/Dashboard';
 
 
 
@@ -26,6 +27,8 @@ function App() {
 
         <Header />
         <Navigation />
+
+        <Dashboard />
 
         <Switch>
           <Route path='/login' component={Login} />
