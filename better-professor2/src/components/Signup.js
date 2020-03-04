@@ -6,7 +6,7 @@ import {axiosWithAuth} from '../utils/axiosWtihAuth';
 import {useForm} from 'react-hook-form';
 import {FormPage, FormField, FormInfo, Button, Input} from "./styled-components"
 
-function Login()  {
+function Signup()  {
 
     const history = useHistory('');
     const [user, setUser] = useState('');
@@ -119,4 +119,4 @@ function Login()  {
     );
 }
 
-export default Login;
+export default Signup;
