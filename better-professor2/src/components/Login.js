@@ -13,8 +13,7 @@ const Login = (props) => {
       register,
       handleSubmit,
       errors,
-      setError,
-      clearError,
+      getValues,
       formState: { isSubmitting }
     } = useForm();
 
@@ -30,14 +29,10 @@ const Login = (props) => {
 
     const onSubmit = e => {
 
-      const username = e.username;
-      const password = e.password;
-
+      const values = getValues();
+      console.log(values);
       axiosWithAuth()
-      .post(`/auth/login`, {
-        'username': username,
-        'password': password
-    })
+      .post(`/auth/login`, values)
       .then(res=> {
           console.log("login successfull", res)
           localStorage.setItem("token", res.data.token);
@@ -56,11 +51,11 @@ const Login = (props) => {
           <h1>Log In</h1>
           <FormInfo>
           <label htmlFor="username">Username</label>
-          <Input className="styleInput3" id="username" placeholder="Enter Username Here" name="username" ref={register({ required: 'Please enter username', requred : true })} />
+          <Input className="styleInput3" id="username" placeholder="Enter Username Here" name="username" ref={register({required : true })} />
           {errors.username && console.log('Login Username error: ', errors.username) && <p>{errors.username.message}</p>}
 
           <label htmlFor="password">Password</label>
-          <Input className="styleInput3" id="password" placeholder="Enter Password Here" name="passWord" type="password" ref={register({ required: 'Please enter password', required: true, minLength: 2 })} />
+          <Input className="styleInput3" id="password" placeholder="Enter Password Here" name="password" type="password" ref={register({required: true })} />
           {errors.password && console.log('Login Password Error: ', errors.password) && <p>{errors.password.message}</p>}
         </FormInfo>
         <Button>
