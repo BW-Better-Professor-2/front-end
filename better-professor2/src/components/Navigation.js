@@ -2,6 +2,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {Nav, NavLinksContainer} from './styled-components';
+import StudentList from './StudentList';
 import './styles.css';
 
 function Navigation() {
@@ -11,10 +12,10 @@ function Navigation() {
 
         <NavLinksContainer>
             <Link className='link'>Dashboard</Link>
-            <Link className="link">Student List List</Link>
-            <Link className="link">Project List</Link>
-            <Link className="link">My Reminders</Link>
-            <Link className="link">Setings</Link>
+            <Link className="link" to={`/studentlist/`}>Student List</Link>
+            <Link className="link" to={`/projectlist/`}>Project List</Link>
+            <Link className="link" to={`/reminderlist/`}>My Reminders</Link>
+            <Link className="link">Settings</Link>
             <Link className="link">Help</Link>
        </NavLinksContainer>
     </Nav>
