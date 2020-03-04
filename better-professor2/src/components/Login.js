@@ -43,7 +43,7 @@ const Login = () => {
     };
 
   return (
-  <form>
+  <LoginForm>
     <div className="pageContainer2">
       <div className="sectionContainer1">
         <form className="loginForm" onSubmit={handleSubmit(onSubmit)}>
@@ -91,7 +91,7 @@ const Login = () => {
       </div>
     </div>
     </div>
-    </form>
+    </LoginForm>
     
   );
 }
