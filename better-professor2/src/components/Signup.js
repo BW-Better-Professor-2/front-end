@@ -43,7 +43,7 @@ function Login()  {
                 'password': password.toString(),
             })
             .then(response => {
-                console.log('User successfully created.')
+                console.log('User successfully created.', response)
             })
             .then (response2 => {
                 console.log('Logged in successfully as new user')
