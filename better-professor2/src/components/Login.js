@@ -52,8 +52,6 @@ const Login = (props) => {
 
   return (
   <LoginForm>
-    
-      
         <FormField className="loginForm" onSubmit={handleSubmit(onSubmit)}>
           <h1>Log In</h1>
           <FormInfo>
@@ -76,7 +74,6 @@ const Login = (props) => {
         {/* Sign Up Graphic Here */}
       </div>
     </div>
-    
     </LoginForm>
     
   );
