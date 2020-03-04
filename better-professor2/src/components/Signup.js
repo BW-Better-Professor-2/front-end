@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import axios from 'axios';
+import {axiosWithAuth} from '../utils/axiosWtihAuth';
 
 import {useForm} from 'react-hook-form';
-import {FormPage, FormField, FormInfo, Button, Input, ImgDiv} from "styled-components"
+import {FormPage, FormField, FormInfo, Button, Input} from "./styled-components"
 
 function Login()  {
 
@@ -37,12 +38,12 @@ function Login()  {
 
     const onSubmit = () => {
         (password === confirmPassword) ? ( //<--IF THIS THEN, -->
-            axios.post('https://better-professor-bw.herokuapp.com/api/auth/register', {
+            axiosWithAuth().post('/auth/register', {
                 'username': email.toString(),
                 'password': password.toString(),
             })
             .then(response => {
-                console.log('User successfully created.')
+                console.log('User successfully created.', response)
             })
             .then (response2 => {
                 console.log('Logged in successfully as new user')
@@ -74,7 +75,7 @@ function Login()  {
                         placeholder='Enter email address'
                         ref={register({required: "Must enter a valid email address"})}
                     />
-                    {errors.email && <p>{errors.email.message}</p>}
+                    {errors.email && console.log('Signup Email error: ', errors.email) && <p>{errors.email.message}</p>}
                 </FormInfo>
                 {/* Password */}
                 <FormInfo>
@@ -89,7 +90,7 @@ function Login()  {
                         ref={register({required: "Must enter a password",
                         minLength: {value: 7, message: "Must enter a password of at least 7 characters"}})}
                     />
-                    {errors.password && <p>{errors.password.message}</p>}
+                    {errors.password && console.log('Signup Password error: ', errors.password) && <p>{errors.password.message}</p>}
                 </FormInfo>
                 <FormInfo>
                 {/* Confirm Password */}
@@ -103,7 +104,7 @@ function Login()  {
                         ref={register({required: "Must confirm password",
                         minLength: {value: 7, message: "Must enter a password of at least 7 characters"}})}
                     />
-                    {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
+                    {errors.confirmPassword && console.log('Signup Confirm Password error: ', errors.confirmPassword) && <p>{errors.confirmPassword.message}</p>}
                     {notMatching}
                 </FormInfo>
                 <Button>Create Account</Button>
