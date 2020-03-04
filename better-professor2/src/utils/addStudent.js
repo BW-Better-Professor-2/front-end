@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { axiosWithAuth } from "./axiosWtihAuth";
 
 const StudentForm = props => {
     const [student, setStudent] = useState({
@@ -13,7 +14,17 @@ const StudentForm = props => {
 
     const submitForm = e => {
         e.preventDefault();
+        const newStudent={
+            professor_id: localStorage.getItem('professorID'),
+            name: student.studentName,
+            email: student.studentEmail
+        }
+        console.log(newStudent);
         props.addNewStudent(student);
+        axiosWithAuth().post('/students', newStudent)
+        .then(response =>{
+            console.log(response)
+        })
         setStudent({studentName: "", studentEmail: ""});
     };
 
