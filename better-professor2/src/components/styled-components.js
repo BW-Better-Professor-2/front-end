@@ -97,12 +97,20 @@ export const LoginForm = styled.div `
 
 `;
 
-export const Nav = styled.nav`
-display:flex;
-justify-content: flex-end;
-align-items:center;
-background-color: #0a2738;
-margin:0 0 10px 0;
-height: 46px;
+export const Nav = styled.div`
+  width: 100%;
+  background-color: #0a2738;
+  height: 50px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+`;
+
+export const NavLinksContainer = styled.div `
+  display:flex;
+  flex-direction: row;
+  border: red solid 1px;
+  width: 50%;
+  justify-content: space-around;
 `;
 
