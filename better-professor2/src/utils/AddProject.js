@@ -1,10 +1,12 @@
 import React, {useState} from "react";
 import { axiosWithAuth } from "./axiosWtihAuth";
+import {useHistory} from 'react-router-dom';
 
 const ProjectForm = props => {
+    const history = useHistory();
     const [project, setProject] = useState({
         title: "",
-        body: ""
+        notes: ""
     });
 
     const handleChanges = e => {
@@ -15,10 +17,18 @@ const ProjectForm = props => {
     const submitForm = e => {
         e.preventDefault();
         const newProject ={
-            
+            student_id: localStorage.getItem('studentID'),
+            title: project.title,
+            notes: project.notes
         }
-        props.addNewProject(project);
-        setProject({title: "", body: ""});
+        console.log(newProject)
+
+        axiosWithAuth().post('/projects', newProject)
+        .then(response => {
+            console.log('New project added to student: ', response)
+            
+        })
+        setProject({title: "", notes: ""});
     };
 
     return (
@@ -32,13 +42,13 @@ const ProjectForm = props => {
                 value={project.title}
             />
 
-            <label htmlFor='body'>Project Details</label>
+            <label htmlFor='notes'>Project Details</label>
             <textarea 
-                id= "body"
+                id= "notes"
                 type="text"
-                name= "body"
+                name= "notes"
                 onChange={handleChanges}
-                value={project.body}
+                value={project.notes}
             />
             <button type='submit'>Add Project</button>
         </form>

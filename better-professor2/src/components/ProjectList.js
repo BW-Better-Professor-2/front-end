@@ -8,7 +8,7 @@ function ProjectList () {
         {
             id: 1,
             title: "",
-            body: "",
+            notes: "",
         }
     ]);
 
@@ -16,7 +16,7 @@ function ProjectList () {
         const newProject = {
             id: Date.now(),
             title: project.title,
-            body: project.body
+            notes: project.notes
         }
         setProjects([...projects, newProject]);
     }

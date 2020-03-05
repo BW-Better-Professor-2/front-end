@@ -1,7 +1,9 @@
 import React, {useState} from "react";
+import {useHistory} from 'react-router-dom';
 import { axiosWithAuth } from "./axiosWtihAuth";
 
 const StudentForm = props => {
+    const history = useHistory('');
     const [student, setStudent] = useState({
         studentName: "",
         studentEmail: ""
@@ -20,10 +22,15 @@ const StudentForm = props => {
             email: student.studentEmail
         }
         console.log(newStudent);
-        props.addNewStudent(student);
+     
         axiosWithAuth().post('/students', newStudent)
         .then(response =>{
-            console.log(response)
+            console.log('New Student Created: ', response)
+            props.setTrigger(!props.trigger)
+            history.push('/studentlist')
+        })
+        .catch(err => {
+            console.log(`Error: ${err}`)
         })
         setStudent({studentName: "", studentEmail: ""});
     };
