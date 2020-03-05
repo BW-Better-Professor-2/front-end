@@ -17,7 +17,7 @@ const ProjectForm = props => {
     const submitForm = e => {
         e.preventDefault();
         const newProject ={
-            student_id: localStorage.getItem('studentID'),
+            student_id: props.id,
             title: project.title,
             notes: project.notes
         }
@@ -26,6 +26,7 @@ const ProjectForm = props => {
         axiosWithAuth().post('/projects', newProject)
         .then(response => {
             console.log('New project added to student: ', response)
+            props.setTrigger(!props.trigger)
             
         })
         setProject({title: "", notes: ""});
