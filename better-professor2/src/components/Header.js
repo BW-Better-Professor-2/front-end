@@ -28,7 +28,7 @@ function Header() {
             <div id="header-login" onClick={delToken}>Log Out</div>
           )}
           {!localStorage.getItem("token") && !localStorage.getItem("professorID") && (
-            <div id="header-login" onClick={()=>history.push("/")}>Log In</div>
+            <div id="header-login" onClick={()=>history.push("/Login")}>Log In</div>
           )}
             
           </HRight>

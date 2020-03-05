@@ -2,6 +2,7 @@ import React, {useState ,useEffect} from 'react';
 import StudentForm from '../utils/AddStudent';
 import Students from '../utils/Students';
 import { axiosWithAuth } from '../utils/axiosWtihAuth';
+import { FormField, LoginForm } from './styled-components';
 
 function StudentList () {
 
@@ -20,11 +21,15 @@ function StudentList () {
     },[trigger])
 
     return(
-        <div className = 'StudentList'>
+        <LoginForm>
+        <FormField>
+      
             <h1>My Students</h1>
             <StudentForm trigger={trigger} setTrigger={setTrigger} />
             <Students students={students}/>
-        </div>
+      
+        </FormField>
+    </LoginForm>
     )
 }
 

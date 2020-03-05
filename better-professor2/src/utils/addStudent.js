@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import {useHistory} from 'react-router-dom';
 import { axiosWithAuth } from "./axiosWtihAuth";
+import {LoginForm, FormField, FormInfo, Button, Input} from '../components/styled-components';
 
 const StudentForm = props => {
     const history = useHistory('');
@@ -37,8 +38,9 @@ const StudentForm = props => {
 
     return (
         <form onSubmit={submitForm}>
+            <FormInfo>
             <label htmlFor='studentName'>Student Name</label>
-            <input 
+            <Input 
                 id= "studentName"
                 type="text"
                 name= "studentName"
@@ -47,14 +49,15 @@ const StudentForm = props => {
             />
 
             <label htmlFor='studentEmail'>Student Email</label>
-            <input 
+            <Input 
                 id= "studentEmail"
                 type="text"
                 name= "studentEmail"
                 onChange={handleChanges}
                 value={student.studentEmail}
             />
-            <button type='submit'>Add Student</button>
+            </FormInfo>
+            <Button type='submit'>Add Student</Button>
         </form>
     )
 }

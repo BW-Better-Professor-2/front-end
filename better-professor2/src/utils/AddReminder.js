@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import { axiosWithAuth } from "./axiosWtihAuth";
 import {useHistory} from 'react-router-dom';
+import {LoginForm, FormField, FormInfo, Button, Input} from '../components/styled-components';
 
 const ReminderForm = props => {
     const history = useHistory('');
@@ -38,14 +39,16 @@ const ReminderForm = props => {
 
     return (
         <form onSubmit={submitForm}>
-            <label htmlFor='title'>Reminder Title</label>
-            <input 
+            <FormInfo>
+            <label htmlFor=''title>Reminder</label>
+            <Input 
                 id= "title"
                 type="text"
                 name= "title"
                 onChange={handleChanges}
                 value={reminder.title}
             />
+            </FormInfo>
 {/* 
             <label htmlFor='body'>Reminder Details</label>
             <textarea 
@@ -55,7 +58,7 @@ const ReminderForm = props => {
                 onChange={handleChanges}
                 value={reminder.body}
             /> */}
-            <button type='submit'>Add Reminder</button>
+            <Button type='submit'>Add Reminder</Button>
         </form>
     )
 }

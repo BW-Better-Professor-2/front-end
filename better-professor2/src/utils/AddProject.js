@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import { axiosWithAuth } from "./axiosWtihAuth";
+import {LoginForm, FormField, FormInfo, Button, Input} from '../components/styled-components';
 
 
 const ProjectForm = props => {
@@ -34,8 +35,9 @@ const ProjectForm = props => {
 
     return (
         <form onSubmit={submitForm}>
+            <FormInfo>
             <label htmlFor='title'>Project Title</label>
-            <input 
+            <Input
                 id= "title"
                 type="text"
                 name= "title"
@@ -44,14 +46,15 @@ const ProjectForm = props => {
             />
 
             <label htmlFor='notes'>Project Details</label>
-            <textarea 
+            <Input 
                 id= "notes"
                 type="text"
                 name= "notes"
                 onChange={handleChanges}
                 value={project.notes}
             />
-            <button type='submit'>Add Project</button>
+            </FormInfo>
+            <Button type='submit'>Add Project</Button>
         </form>
     )
 }

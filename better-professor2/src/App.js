@@ -12,6 +12,7 @@ import ProjectList from './components/ProjectList';
 import ReminderList from './components/ReminderList';
 import Projects from './utils/Projects';
 import {Nav, NavLinksContainer} from './components/styled-components';
+import './components/styles.css';
 
 
 
@@ -21,7 +22,7 @@ function App() {
     <Router>
       <div className='App'>
         <Header />
-        <Link className='link' to={`/Login`}>Log in</Link>
+   
         <Nav>
           <NavLinksContainer>
             <Link className='link' to={`/Signup`}>SignUp</Link>
