@@ -1,7 +1,9 @@
 import React from 'react';
+import {LoginForm, FormField, FormInfo, Button, Input} from '../components/styled-components';
 
 const Reminders = props => {
     return (
+    
       <div className="reminder-list">
         {props.reminders.map(reminder => (
           <div className="reminder" key={reminder.id}>
@@ -10,6 +12,7 @@ const Reminders = props => {
           </div>
         ))}
       </div>
+
     );
   };
 

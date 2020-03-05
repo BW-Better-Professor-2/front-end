@@ -21,7 +21,7 @@ export const Button = styled.button`
   border-radius: 10px;
   border: solid 1px #ddd;
   text-align: center;
-  &[type="submit"]:hover {
+  &:hover {
     background-color: #0A2738;
   }
 `;
@@ -44,7 +44,7 @@ export const FormInfo = styled.div`
 
 export const FormPage = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   margin-top: 5rem;
 `;
