@@ -44,11 +44,8 @@ function Signup()  {
             })
             .then(response => {
                 console.log('User successfully created.', response)
-            })
-            .then (response2 => {
-                console.log('Logged in successfully as new user')
-                localStorage.setItem('token', response2.data.token);
-                localStorage.setItem('professorID', response2.data.id)
+                localStorage.setItem('token', response.data.token);
+                localStorage.setItem('professorID', response.data.id)
                 history.push('/dashboard')
             })
             .catch(error => {

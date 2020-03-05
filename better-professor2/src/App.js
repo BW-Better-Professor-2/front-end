@@ -38,7 +38,6 @@ function App() {
           <Route path='/login' component={Login} />
           <Route path='/signup' component={SignUp} />
           <Route path='/studentlist' component={StudentList}/>
-          <Route path='/studentlist/:id' render={()=> <Projects/>}/>
           <Route path='/projectlist' component={ProjectList}/>
           <Route path='/reminderlist' component={ReminderList}/>
         </Switch>

@@ -2,7 +2,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {Nav, NavLinksContainer} from './styled-components';
-import StudentList from './StudentList';
+
 import './styles.css';
 
 function Navigation() {
