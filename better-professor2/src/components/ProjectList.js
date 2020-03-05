@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import AddProject from '../utils/AddProject';
 import Projects from '../utils/Projects';
 import { axiosWithAuth } from '../utils/axiosWtihAuth';
+import { FormField, LoginForm } from './styled-components';
 
 function ProjectList (props) {
     console.log(props)
@@ -20,13 +21,17 @@ function ProjectList (props) {
     },[trigger])
 
     return(
-        <div className = 'project-list'>
+   
+        <LoginForm>
+        <FormField>
             <h1>My Projects</h1>
             <AddProject id={props.match.params.id} trigger={trigger} setTrigger={setTrigger}
                 setProjects={setProjects}
             />
             <Projects projects={projects}/>
-        </div>
+       
+            </FormField>
+    </LoginForm>
     )
 }
 

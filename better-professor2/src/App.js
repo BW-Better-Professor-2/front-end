@@ -21,7 +21,7 @@ function App() {
     <Router>
       <div className='App'>
         <Header />
-        <Link className='link' to={`/Login`}>Log in</Link>
+   
         <Nav>
           <NavLinksContainer>
             <Link className='link' to={`/Signup`}>SignUp</Link>

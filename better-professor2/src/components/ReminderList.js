@@ -25,11 +25,11 @@ function ReminderList () {
     return(
         <LoginForm>
         <FormField>
-        <div className = 'reminder-list'>
+ 
             <h1>My Reminders</h1>
             <AddReminder trigger={trigger} setTrigger={setTrigger} />
             <Reminders reminders={reminders}/>
-        </div>
+       
         </FormField>
     </LoginForm>
     )
