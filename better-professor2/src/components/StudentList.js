@@ -19,14 +19,7 @@ function StudentList () {
         })
     },[trigger])
 
-    const addNewStudent = student => {
-        const newStudent = {
-            id: Date.now(),
-            studentName: student.studentName,
-            studentEmail: student.studentEmail
-        }
-        setStudents([...students, newStudent]);
-    }
+
 
 
     return(
