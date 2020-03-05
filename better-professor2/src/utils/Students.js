@@ -5,7 +5,7 @@ const Students = props => {
     return (
       <div className="student-list">
         {props.students.map(student => (
-          <Link to={`/studentlist/${student.studentId}`}>
+          <Link to={`/projectlist/${student.studentId}`}>
           <div className="student" key={student.studentId}>
             <h2>{student.name}</h2>
             <p>{student.email}</p>
