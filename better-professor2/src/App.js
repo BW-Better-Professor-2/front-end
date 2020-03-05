@@ -10,6 +10,7 @@ import Dashboard from './components/Dashboard';
 import StudentList from './components/StudentList';
 import ProjectList from './components/ProjectList';
 import ReminderList from './components/ReminderList';
+import Projects from './utils/Projects';
 
 
 
@@ -22,7 +23,7 @@ function App() {
             <Link to='/login'>Login</Link>
           </li>
         </ul>
-        <ul>
+        <ul> 
           <li>
             <Link to='/signUp'>SignUp</Link>
           </li>
@@ -37,6 +38,7 @@ function App() {
           <Route path='/login' component={Login} />
           <Route path='/signup' component={SignUp} />
           <Route path='/studentlist' component={StudentList}/>
+          <Route path='/studentlist/:id' render={()=> <Projects/>}/>
           <Route path='/projectlist' component={ProjectList}/>
           <Route path='/reminderlist' component={ReminderList}/>
         </Switch>
