@@ -1,5 +1,5 @@
 import React, {useState ,useEffect} from 'react';
-import AddStudent from '../utils/AddStudent';
+import StudentForm from '../utils/addStudent';
 import Students from '../utils/Students';
 import { axiosWithAuth } from '../utils/axiosWtihAuth';
 
@@ -25,7 +25,7 @@ function StudentList () {
     return(
         <div className = 'StudentList'>
             <h1>My Students</h1>
-            <AddStudent trigger={trigger} setTrigger={setTrigger} />
+            <StudentForm trigger={trigger} setTrigger={setTrigger} />
             <Students students={students}/>
         </div>
     )
