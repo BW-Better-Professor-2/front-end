@@ -17,21 +17,21 @@ const ReminderForm = props => {
     const submitForm = e => {
         e.preventDefault();
         const newReminder = {
-            professor_id: localStorage.getItem('professorID'),
-            title: reminder.title,
-            body: reminder.body
+            user_id: localStorage.getItem('professorID'),
+            message: reminder.title,
+            
         }
 
         console.log(newReminder)
 
-        axiosWithAuth().post('/messages', newReminder)
+        axiosWithAuth().post('/reminders', newReminder)
         .then(response => {
             console.log('New reminder added to messages: ', response)
             props.setTrigger(!props.trigger)
-            history.push('/studentlist')
+            history.push('/reminderlist')
         })
         .catch(err => {
-            console.log(`Error: ${err}`)
+            console.log(`Here is the error: ${err}`)
         })
         setReminder({title: "", body: ""});
     };
@@ -46,7 +46,7 @@ const ReminderForm = props => {
                 onChange={handleChanges}
                 value={reminder.title}
             />
-
+{/* 
             <label htmlFor='body'>Reminder Details</label>
             <textarea 
                 id= "body"
@@ -54,7 +54,7 @@ const ReminderForm = props => {
                 name= "body"
                 onChange={handleChanges}
                 value={reminder.body}
-            />
+            /> */}
             <button type='submit'>Add Reminder</button>
         </form>
     )
