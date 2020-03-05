@@ -12,6 +12,7 @@ import ProjectList from './components/ProjectList';
 import ReminderList from './components/ReminderList';
 import Projects from './utils/Projects';
 import {Nav, NavLinksContainer} from './components/styled-components';
+import './components/styles.css';
 
 
 
