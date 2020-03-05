@@ -1,6 +1,9 @@
 import React, {useState} from "react";
+import { axiosWithAuth } from "./axiosWtihAuth";
+import {useHistory} from 'react-router-dom';
 
 const ReminderForm = props => {
+    const history = useHistory('');
     const [reminder, setReminder] = useState({
         title: "",
         body: ""
@@ -13,7 +16,23 @@ const ReminderForm = props => {
 
     const submitForm = e => {
         e.preventDefault();
-        props.addNewReminder(reminder);
+        const newReminder = {
+            professor_id: localStorage.getItem('professorID'),
+            title: reminder.title,
+            body: reminder.body
+        }
+
+        console.log(newReminder)
+
+        axiosWithAuth().post('/messages', newReminder)
+        .then(response => {
+            console.log('New reminder added to messages: ', response)
+            props.setTrigger(!props.trigger)
+            history.push('/studentlist')
+        })
+        .catch(err => {
+            console.log(`Error: ${err}`)
+        })
         setReminder({title: "", body: ""});
     };
 
