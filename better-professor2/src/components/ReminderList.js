@@ -10,9 +10,9 @@ function ReminderList () {
     const [reminders, setReminders] = useState([]);
     const id = localStorage.getItem('professorID')
     useEffect(() => {
-        axiosWithAuth().get(`users/${id}/messages`)
+        axiosWithAuth().get(`/reminders`)
         .then(response =>{
-            console.log('response', response)
+            console.log('Reminder Created: ', response.data)
             setReminders(response.data)
         })
         .catch(err =>{

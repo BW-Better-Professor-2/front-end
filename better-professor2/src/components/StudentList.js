@@ -1,5 +1,5 @@
 import React, {useState ,useEffect} from 'react';
-import StudentForm from '../utils/addStudent';
+import StudentForm from '../utils/AddStudent';
 import Students from '../utils/Students';
 import { axiosWithAuth } from '../utils/axiosWtihAuth';
 
@@ -18,9 +18,6 @@ function StudentList () {
             console.log('error: ', err)
         })
     },[trigger])
-
-
-
 
     return(
         <div className = 'StudentList'>
