@@ -1,5 +1,5 @@
 import React, {useState ,useEffect} from 'react';
-import StudentForm from '../utils/AddStudent';
+import StudentForm from '../utils/addStudent';
 import Students from '../utils/Students';
 import { axiosWithAuth } from '../utils/axiosWtihAuth';
 import { FormField, LoginForm } from './styled-components';
