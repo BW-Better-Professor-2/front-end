@@ -14,15 +14,13 @@ function Header() {
     return(
       <HeadContainer>
         <Head>
-          <Link to="/">
             <HLeft>
                 <div id="headerLogo"> {/* Header Logo Here */} </div>
-                <div className="h-left">
+                <div className="hLeft">
                   <h1 id="app-name">Better Professor</h1>
                   <span id="app-description">Deadline Management App</span>
                 </div>
             </HLeft>
-          </Link>
           <HRight>
           {localStorage.getItem("token") && localStorage.getItem("professorID") && (
             <div id="header-login" onClick={delToken}>Log Out</div>
